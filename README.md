@@ -1,9 +1,10 @@
 # AI Fairness Frameworks
 
 ![Case Studies](https://img.shields.io/badge/Case%20Studies-3-blue)
-![Techniques](https://img.shields.io/badge/Techniques-72+-green)
+![Techniques](https://img.shields.io/badge/Techniques-74%20Implementations-green)
 ![Validated](https://img.shields.io/badge/Results-Statistically%20Validated-success)
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![Citations](https://img.shields.io/badge/Academic%20Citations-50+-orange)
 
 > **Evidence-based fairness interventions with measurable results.**
 > From bias diagnosis to organizational transformation.
@@ -79,13 +80,34 @@ Enterprise-scale fairness implementation for a multi-team AI recruitment platfor
 
 ---
 
+## Technique Library
+
+**[74 Production-Ready Implementations](./techniques/)** across 5 intervention categories:
+
+| Category | Count | Purpose | Key Techniques |
+|----------|-------|---------|----------------|
+| [Pre-Processing](./techniques/pre_processing/) | 11 | Transform data before training | Disparate Impact Remover, Reweighting, SMOTE |
+| [In-Processing](./techniques/in_processing/) | 16 | Apply constraints during training | Adversarial Debiasing, Prejudice Remover, Exponentiated Gradient |
+| [Post-Processing](./techniques/post_processing/) | 7 | Calibrate outputs after training | Equalized Odds, Reject Option, Calibration |
+| [Causal](./techniques/causal/) | 17 | Causal inference for fairness | Counterfactual Fairness, Path-Specific Effects |
+| [Validation](./techniques/validation/) | 23 | Statistical testing and metrics | Permutation Tests, Bootstrap CIs |
+
+Each implementation includes:
+- Complete Python code with academic citation
+- Usage documentation and integration examples
+- Tested on real case studies with measured outcomes
+
+[Browse All Techniques ->](./techniques/)
+
+---
+
 ## Methodology
 
 ### 2-Tier RAG System
 
 Our approach uses a systematic Retrieval-Augmented Generation pipeline:
 
-1. **Tier 1 (Discovery)**: Semantic search across 72+ fairness techniques and academic literature
+1. **Tier 1 (Discovery)**: Semantic search across 74 fairness techniques and academic literature
 2. **Tier 2 (Synthesis)**: LLM-powered consolidation into actionable deliverables
 3. **Execution (Validation)**: Real technique application with statistical validation
 
@@ -99,13 +121,7 @@ Our approach uses a systematic Retrieval-Augmented Generation pipeline:
 | **Equal Opportunity** | TPR ratio across protected groups | Equal true positive rates |
 | **Equalized Odds** | Both TPR and FPR parity | Balance between fairness and accuracy |
 
-### Intervention Techniques
-
-| Stage | Technique | Purpose |
-|-------|-----------|---------|
-| Pre-processing | Disparate Impact Remover | Remove correlation with protected attributes |
-| In-processing | Adversarial Debiasing | Fair representation learning during training |
-| Post-processing | Equalized Odds Threshold | Calibrate decision thresholds after training |
+[View All Metrics ->](./methodology/fairness-metrics.md)
 
 ---
 
@@ -132,6 +148,12 @@ Enterprise-wide fairness programs with governance frameworks, executive communic
 
 ```
 ai-fairness-frameworks/
+├── techniques/                     # 74 production-ready implementations
+│   ├── pre_processing/             # 11 data transformation techniques
+│   ├── in_processing/              # 16 training constraint techniques
+│   ├── post_processing/            # 7 output calibration techniques
+│   ├── causal/                     # 17 causal inference techniques
+│   └── validation/                 # 23 statistical testing techniques
 ├── case-studies/
 │   ├── 01-assessment-lending/      # Meridian Financial - Diagnosis
 │   ├── 02-intervention-lending/    # MidCity Bank - Treatment (+231% DP)
@@ -155,6 +177,7 @@ ai-fairness-frameworks/
 
 | Aspect | This Framework | Typical Approaches |
 |--------|----------------|-------------------|
+| **Techniques** | 74 production-ready implementations | Conceptual descriptions |
 | **Results** | Real execution with measured outcomes | Theoretical recommendations |
 | **Validation** | Permutation tests, bootstrap CIs | Anecdotal or none |
 | **Trade-offs** | Exact fairness vs. accuracy costs | Vague "minimal impact" |
