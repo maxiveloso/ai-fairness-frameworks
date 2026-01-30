@@ -1,0 +1,309 @@
+{
+  "generation_info": {
+    "timestamp": "2026-01-29T22:00:40.910214",
+    "n_samples": 10000,
+    "random_seed": 42,
+    "target_demographic_parity": 0.35,
+    "target_accuracy": 0.84,
+    "domain": "recruitment",
+    "scenario": "EquiHire AI Recruitment Platform"
+  },
+  "bias_injection": {
+    "description": "Explicit bias patterns injected for fairness implementation demonstrations",
+    "mechanisms": {
+      "experience_disparity": {
+        "type": "intersectional",
+        "parameters": {
+          "race_gaps": {
+            "White": 1.0,
+            "Black": 0.78,
+            "Hispanic": 0.84,
+            "Asian": 1.02
+          },
+          "gender_gaps": {
+            "Male": 1.0,
+            "Female": 0.88
+          }
+        },
+        "intervention_opportunities": [
+          "Pre-Processing: Reweighting by race/gender",
+          "Pre-Processing: Experience transformation to reduce correlation with protected attributes",
+          "Causal: Block experience \u2192 race pathway"
+        ]
+      },
+      "interview_score_gap": {
+        "type": "intersectional",
+        "parameters": {
+          "race_gaps": {
+            "White": 0,
+            "Black": -28,
+            "Hispanic": -18,
+            "Asian": 8
+          },
+          "gender_gaps": {
+            "Male": 0,
+            "Female": -12
+          }
+        },
+        "intervention_opportunities": [
+          "Pre-Processing: Interview score adjustment by demographics",
+          "In-Processing: Add fairness constraints on interview score usage",
+          "Causal: Model implicit bias explicitly"
+        ]
+      },
+      "geographic_network_segregation": {
+        "type": "proxy_discrimination",
+        "description": "Location region highly correlated with race (network effects)",
+        "intervention_opportunities": [
+          "Pre-Processing: Remove location_region feature",
+          "Pre-Processing: Orthogonalize location with respect to race",
+          "Causal: Identify location as proxy variable"
+        ]
+      },
+      "direct_discrimination": {
+        "type": "threshold_adjustment",
+        "parameters": {
+          "race_thresholds": {
+            "White": 0,
+            "Black": 10,
+            "Hispanic": 6,
+            "Asian": 2
+          },
+          "gender_thresholds": {
+            "Male": 0,
+            "Female": 3
+          }
+        },
+        "intervention_opportunities": [
+          "In-Processing: Fairness-constrained optimization",
+          "Post-Processing: Equalized odds threshold adjustment",
+          "Post-Processing: Calibrated equalized odds"
+        ]
+      }
+    }
+  },
+  "causal_graph": {
+    "nodes": [
+      "race",
+      "gender",
+      "location_region",
+      "years_experience",
+      "interview_score",
+      "skills_match",
+      "previous_tenure",
+      "salary_requested",
+      "hired"
+    ],
+    "edges": [
+      [
+        "race",
+        "location_region",
+        "geographic_network_segregation"
+      ],
+      [
+        "race",
+        "years_experience",
+        "career_discrimination"
+      ],
+      [
+        "gender",
+        "years_experience",
+        "career_interruption_penalty"
+      ],
+      [
+        "race",
+        "interview_score",
+        "implicit_bias"
+      ],
+      [
+        "gender",
+        "interview_score",
+        "evaluation_bias"
+      ],
+      [
+        "years_experience",
+        "interview_score",
+        "skill_correlation"
+      ],
+      [
+        "years_experience",
+        "skills_match",
+        "experience_skill_development"
+      ],
+      [
+        "years_experience",
+        "previous_tenure",
+        "career_stability"
+      ],
+      [
+        "years_experience",
+        "salary_requested",
+        "market_value"
+      ],
+      [
+        "interview_score",
+        "hired",
+        "legitimate_predictor"
+      ],
+      [
+        "skills_match",
+        "hired",
+        "legitimate_predictor"
+      ],
+      [
+        "years_experience",
+        "hired",
+        "legitimate_predictor"
+      ],
+      [
+        "race",
+        "hired",
+        "DIRECT_DISCRIMINATION"
+      ],
+      [
+        "gender",
+        "hired",
+        "DIRECT_DISCRIMINATION"
+      ]
+    ]
+  },
+  "features": {
+    "protected_attributes": {
+      "race": {
+        "type": "categorical",
+        "values": [
+          "White",
+          "Black",
+          "Hispanic",
+          "Asian"
+        ],
+        "distribution": {
+          "White": 0.58,
+          "Black": 0.16,
+          "Hispanic": 0.16,
+          "Asian": 0.1
+        },
+        "legitimate_use": false,
+        "note": "Should not directly influence hiring decision"
+      },
+      "gender": {
+        "type": "categorical",
+        "values": [
+          "Male",
+          "Female"
+        ],
+        "distribution": {
+          "Male": 0.55,
+          "Female": 0.45
+        },
+        "legitimate_use": false,
+        "note": "Should not directly influence hiring decision"
+      }
+    },
+    "proxy_variables": {
+      "location_region": {
+        "type": "categorical",
+        "values": [
+          "Region_A",
+          "Region_B",
+          "Region_C",
+          "Region_D"
+        ],
+        "proxy_for": "race",
+        "mechanism": "geographic_network_segregation",
+        "note": "Correlated with race due to network/geographic effects"
+      }
+    },
+    "legitimate_predictors": {
+      "years_experience": {
+        "type": "float",
+        "range": [
+          0,
+          35
+        ],
+        "legitimate_use": true,
+        "bias_note": "Contaminated by career discrimination"
+      },
+      "interview_score": {
+        "type": "integer",
+        "range": [
+          30,
+          100
+        ],
+        "legitimate_use": true,
+        "bias_note": "Contaminated by implicit evaluation bias"
+      },
+      "skills_match": {
+        "type": "float",
+        "range": [
+          0.1,
+          1.0
+        ],
+        "legitimate_use": true,
+        "bias_note": "Slightly correlated with race due to training access"
+      },
+      "previous_tenure": {
+        "type": "float",
+        "range": [
+          0.5,
+          20
+        ],
+        "legitimate_use": true,
+        "bias_note": "Correlated with race due to employment instability"
+      },
+      "salary_requested": {
+        "type": "integer",
+        "range": [
+          35000,
+          250000
+        ],
+        "legitimate_use": true,
+        "bias_note": "Indirectly affected by biased experience/interview scores"
+      }
+    },
+    "outcome": {
+      "hired": {
+        "type": "binary",
+        "values": [
+          0,
+          1
+        ],
+        "bias_mechanisms": [
+          "direct_discrimination",
+          "indirect_via_features"
+        ]
+      }
+    }
+  },
+  "fairness_definitions": {
+    "demographic_parity": {
+      "formula": "P(hired | race=Black) / P(hired | race=White)",
+      "target": 0.35,
+      "interpretation": "Ratio < 1 indicates Black applicants hired at lower rate"
+    },
+    "equalized_odds": {
+      "formula": "TPR and FPR should be equal across groups",
+      "note": "Not directly targeted in generation, but can be measured"
+    },
+    "counterfactual_fairness": {
+      "formula": "P(Y=1 | X, race=r1) = P(Y=1 | X, race=r2)",
+      "note": "Generated counterfactual pairs enable testing this"
+    }
+  },
+  "module_3_alignment": {
+    "toolkit_support": {
+      "fair_ai_scrum": "Metrics enable sprint-level fairness tracking",
+      "organizational_integration": "Data supports governance decision frameworks",
+      "architecture_cookbook": "Multiple bias sources enable various architectural interventions",
+      "regulatory_compliance": "Data enables EEOC/EU AI Act compliance demonstrations"
+    },
+    "requirements_coverage": {
+      "integration": "All four toolkits applicable",
+      "implementation_guide": "Metadata documents intervention opportunities",
+      "case_study": "EquiHire recruitment scenario specified",
+      "validation_framework": "Counterfactual pairs enable effect measurement",
+      "adaptability": "Parameters adjustable for other domains",
+      "improvement_insights": "Can analyze which interventions most effective"
+    }
+  }
+}

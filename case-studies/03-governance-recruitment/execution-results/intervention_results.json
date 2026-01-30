@@ -1,0 +1,231 @@
+{
+  "timestamp": "2026-01-29T22:04:04.585316",
+  "domain": "recruitment",
+  "scenario": "EquiHire AI Recruitment Platform",
+  "baseline_reference": "outputs/execution/baseline_results.json",
+  "techniques_applied": [
+    {
+      "id": 37,
+      "name": "Disparate Impact Remover",
+      "stage": "pre_processing"
+    },
+    {
+      "id": 6,
+      "name": "Adversarial Debiasing",
+      "stage": "in_processing"
+    },
+    {
+      "id": 1,
+      "name": "Equalized Odds Threshold",
+      "stage": "post_processing"
+    }
+  ],
+  "pre_processing": {
+    "accuracy": 0.8888888888888888,
+    "by_group": {
+      "White": {
+        "size": 1180,
+        "selection_rate": 0.2745762711864407,
+        "true_positive_rate": 0.765,
+        "actual_positive_rate": 0.3389830508474576,
+        "accuracy": 0.9050847457627119
+      },
+      "Asian": {
+        "size": 192,
+        "selection_rate": 0.2760416666666667,
+        "true_positive_rate": 0.7076923076923077,
+        "actual_positive_rate": 0.3385416666666667,
+        "accuracy": 0.8645833333333334
+      },
+      "Hispanic": {
+        "size": 307,
+        "selection_rate": 0.23778501628664495,
+        "true_positive_rate": 1.0,
+        "actual_positive_rate": 0.06840390879478828,
+        "accuracy": 0.8306188925081434
+      },
+      "Black": {
+        "size": 319,
+        "selection_rate": 0.16927899686520376,
+        "true_positive_rate": 0.8928571428571429,
+        "actual_positive_rate": 0.0877742946708464,
+        "accuracy": 0.8996865203761756
+      }
+    },
+    "demographic_parity": 0.6165099268547545,
+    "black_hiring_rate": 0.16927899686520376,
+    "white_hiring_rate": 0.2745762711864407,
+    "dp_difference": 0.10529727432123692,
+    "equal_opportunity": 1.1671335200746966,
+    "eo_difference": -0.1278571428571429
+  },
+  "in_processing": {
+    "accuracy": 0.8998998998998999,
+    "by_group": {
+      "White": {
+        "size": 1180,
+        "selection_rate": 0.27033898305084747,
+        "true_positive_rate": 0.7575,
+        "actual_positive_rate": 0.3389830508474576,
+        "accuracy": 0.9042372881355932
+      },
+      "Asian": {
+        "size": 192,
+        "selection_rate": 0.22916666666666666,
+        "true_positive_rate": 0.6461538461538462,
+        "actual_positive_rate": 0.3385416666666667,
+        "accuracy": 0.8697916666666666
+      },
+      "Hispanic": {
+        "size": 307,
+        "selection_rate": 0.18241042345276873,
+        "true_positive_rate": 1.0,
+        "actual_positive_rate": 0.06840390879478828,
+        "accuracy": 0.8859934853420195
+      },
+      "Black": {
+        "size": 319,
+        "selection_rate": 0.14733542319749215,
+        "true_positive_rate": 0.8571428571428571,
+        "actual_positive_rate": 0.0877742946708464,
+        "accuracy": 0.9153605015673981
+      }
+    },
+    "demographic_parity": 0.545002505871601,
+    "black_hiring_rate": 0.14733542319749215,
+    "white_hiring_rate": 0.27033898305084747,
+    "dp_difference": 0.12300355985335532,
+    "equal_opportunity": 1.1315417256011315,
+    "eo_difference": -0.09964285714285714
+  },
+  "post_processing": {
+    "accuracy": 0.9044044044044044,
+    "by_group": {
+      "White": {
+        "size": 1180,
+        "selection_rate": 0.27033898305084747,
+        "true_positive_rate": 0.7575,
+        "actual_positive_rate": 0.3389830508474576,
+        "accuracy": 0.9042372881355932
+      },
+      "Asian": {
+        "size": 192,
+        "selection_rate": 0.22916666666666666,
+        "true_positive_rate": 0.6461538461538462,
+        "actual_positive_rate": 0.3385416666666667,
+        "accuracy": 0.8697916666666666
+      },
+      "Hispanic": {
+        "size": 307,
+        "selection_rate": 0.18241042345276873,
+        "true_positive_rate": 1.0,
+        "actual_positive_rate": 0.06840390879478828,
+        "accuracy": 0.8859934853420195
+      },
+      "Black": {
+        "size": 319,
+        "selection_rate": 0.10031347962382445,
+        "true_positive_rate": 0.75,
+        "actual_positive_rate": 0.0877742946708464,
+        "accuracy": 0.9435736677115988
+      }
+    },
+    "demographic_parity": 0.37106553591257946,
+    "black_hiring_rate": 0.10031347962382445,
+    "white_hiring_rate": 0.27033898305084747,
+    "dp_difference": 0.17002550342702302,
+    "equal_opportunity": 0.9900990099009902,
+    "eo_difference": 0.007499999999999951
+  },
+  "final": {
+    "accuracy": 0.9044044044044044,
+    "by_group": {
+      "White": {
+        "size": 1180,
+        "selection_rate": 0.27033898305084747,
+        "true_positive_rate": 0.7575,
+        "actual_positive_rate": 0.3389830508474576,
+        "accuracy": 0.9042372881355932
+      },
+      "Asian": {
+        "size": 192,
+        "selection_rate": 0.22916666666666666,
+        "true_positive_rate": 0.6461538461538462,
+        "actual_positive_rate": 0.3385416666666667,
+        "accuracy": 0.8697916666666666
+      },
+      "Hispanic": {
+        "size": 307,
+        "selection_rate": 0.18241042345276873,
+        "true_positive_rate": 1.0,
+        "actual_positive_rate": 0.06840390879478828,
+        "accuracy": 0.8859934853420195
+      },
+      "Black": {
+        "size": 319,
+        "selection_rate": 0.10031347962382445,
+        "true_positive_rate": 0.75,
+        "actual_positive_rate": 0.0877742946708464,
+        "accuracy": 0.9435736677115988
+      }
+    },
+    "demographic_parity": 0.37106553591257946,
+    "black_hiring_rate": 0.10031347962382445,
+    "white_hiring_rate": 0.27033898305084747,
+    "dp_difference": 0.17002550342702302,
+    "equal_opportunity": 0.9900990099009902,
+    "eo_difference": 0.007499999999999951
+  },
+  "intersectional": {
+    "White_Male": {
+      "size": 642,
+      "selection_rate": 0.3411214953271028,
+      "accuracy": 0.8613707165109035
+    },
+    "White_Female": {
+      "size": 538,
+      "selection_rate": 0.18587360594795538,
+      "accuracy": 0.9553903345724907
+    },
+    "Asian_Male": {
+      "size": 106,
+      "selection_rate": 0.32075471698113206,
+      "accuracy": 0.8207547169811321
+    },
+    "Asian_Female": {
+      "size": 86,
+      "selection_rate": 0.11627906976744186,
+      "accuracy": 0.9302325581395349
+    },
+    "Hispanic_Male": {
+      "size": 169,
+      "selection_rate": 0.24260355029585798,
+      "accuracy": 0.8579881656804734
+    },
+    "Hispanic_Female": {
+      "size": 138,
+      "selection_rate": 0.10869565217391304,
+      "accuracy": 0.9202898550724637
+    },
+    "Black_Male": {
+      "size": 174,
+      "selection_rate": 0.14367816091954022,
+      "accuracy": 0.9310344827586207
+    },
+    "Black_Female": {
+      "size": 145,
+      "selection_rate": 0.04827586206896552,
+      "accuracy": 0.9586206896551724
+    }
+  },
+  "improvement": {
+    "dp_baseline": 0.17708263856466352,
+    "dp_final": 0.37106553591257946,
+    "dp_improvement": 0.19398289734791593,
+    "dp_improvement_pct": 109.54371299198881,
+    "accuracy_baseline": 0.9219219219219219,
+    "accuracy_final": 0.9044044044044044,
+    "accuracy_change": -0.01751751751751751,
+    "accuracy_change_pct": -1.9001085776330071
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "timestamp": "2025-12-23T14:30:58.152335",
+  "intervention_reference": "outputs/execution/intervention_results.json",
+  "pareto_frontier": [
+    {
+      "stage": "in_processing",
+      "demographic_parity": 0.7081445927703615,
+      "accuracy": 0.7941912869303956,
+      "is_pareto_optimal": true
+    },
+    {
+      "stage": "pre_processing",
+      "demographic_parity": 0.768176909714071,
+      "accuracy": 0.7786680020030045,
+      "is_pareto_optimal": true
+    },
+    {
+      "stage": "post_processing",
+      "demographic_parity": 0.9034948252587369,
+      "accuracy": 0.7941912869303956,
+      "is_pareto_optimal": true
+    }
+  ],
+  "sensitivity": {
+    "repair_level_sensitivity": {
+      "low": 0.5,
+      "medium": 0.8,
+      "high": 1.0,
+      "impact_on_dp": "Higher repair \u2192 Better DP, Lower accuracy"
+    },
+    "adversarial_weight_sensitivity": {
+      "low": 0.3,
+      "medium": 0.5,
+      "high": 0.7,
+      "impact_on_dp": "Higher weight \u2192 Better DP, Lower accuracy"
+    }
+  },
+  "cost_benefit": {
+    "fairness_gain_pct": 231.6314953483095,
+    "accuracy_cost_pct": 0.6984126984127104,
+    "cost_benefit_ratio": 331.65418652143745,
+    "interpretation": "Favorable"
+  }
+}

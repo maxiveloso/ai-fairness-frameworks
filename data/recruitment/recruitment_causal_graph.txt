@@ -1,0 +1,29 @@
+CAUSAL GRAPH: EquiHire Recruitment Decision Process
+======================================================================
+
+Nodes:
+  - race
+  - gender
+  - location_region
+  - years_experience
+  - interview_score
+  - skills_match
+  - previous_tenure
+  - salary_requested
+  - hired
+
+Edges (source → target: mechanism):
+  race → location_region: geographic_network_segregation
+  race → years_experience: career_discrimination
+  gender → years_experience: career_interruption_penalty
+  race → interview_score: implicit_bias
+  gender → interview_score: evaluation_bias
+  years_experience → interview_score: skill_correlation
+  years_experience → skills_match: experience_skill_development
+  years_experience → previous_tenure: career_stability
+  years_experience → salary_requested: market_value
+  interview_score → hired: legitimate_predictor
+  skills_match → hired: legitimate_predictor
+  years_experience → hired: legitimate_predictor
+  race → hired: DIRECT_DISCRIMINATION ⚠️  DISCRIMINATION!
+  gender → hired: DIRECT_DISCRIMINATION ⚠️  DISCRIMINATION!

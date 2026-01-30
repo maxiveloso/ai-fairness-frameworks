@@ -1,0 +1,100 @@
+{
+  "model_type": "XGBoost Baseline",
+  "domain": "recruitment",
+  "scenario": "EquiHire AI Recruitment Platform",
+  "timestamp": "2026-01-29T22:03:58.894090",
+  "dataset": {
+    "train_size": 5998,
+    "test_size": 1998,
+    "train_path": "data/synthetic/recruitment_train.csv",
+    "test_path": "data/synthetic/recruitment_test.csv"
+  },
+  "overall": {
+    "accuracy": 0.9219219219219219,
+    "by_group": {
+      "White": {
+        "size": 1180,
+        "selection_rate": 0.31864406779661014,
+        "true_positive_rate": 0.8375,
+        "actual_positive_rate": 0.3389830508474576,
+        "accuracy": 0.9101694915254237
+      },
+      "Asian": {
+        "size": 192,
+        "selection_rate": 0.3697916666666667,
+        "true_positive_rate": 0.8461538461538461,
+        "actual_positive_rate": 0.3385416666666667,
+        "accuracy": 0.8645833333333334
+      },
+      "Hispanic": {
+        "size": 307,
+        "selection_rate": 0.10097719869706841,
+        "true_positive_rate": 0.9523809523809523,
+        "actual_positive_rate": 0.06840390879478828,
+        "accuracy": 0.9609120521172638
+      },
+      "Black": {
+        "size": 319,
+        "selection_rate": 0.05642633228840126,
+        "true_positive_rate": 0.6071428571428571,
+        "actual_positive_rate": 0.0877742946708464,
+        "accuracy": 0.9623824451410659
+      }
+    },
+    "demographic_parity": 0.17708263856466352,
+    "black_hiring_rate": 0.05642633228840126,
+    "white_hiring_rate": 0.31864406779661014,
+    "dp_difference": 0.26221773550820887,
+    "equal_opportunity": 0.7249466950959488,
+    "eo_difference": 0.23035714285714293
+  },
+  "intersectional": {
+    "White_Male": {
+      "size": 642,
+      "selection_rate": 0.3987538940809969,
+      "accuracy": 0.8909657320872274
+    },
+    "White_Female": {
+      "size": 538,
+      "selection_rate": 0.22304832713754646,
+      "accuracy": 0.9330855018587361
+    },
+    "Asian_Male": {
+      "size": 106,
+      "selection_rate": 0.4716981132075472,
+      "accuracy": 0.8584905660377359
+    },
+    "Asian_Female": {
+      "size": 86,
+      "selection_rate": 0.2441860465116279,
+      "accuracy": 0.872093023255814
+    },
+    "Hispanic_Male": {
+      "size": 169,
+      "selection_rate": 0.1301775147928994,
+      "accuracy": 0.9585798816568047
+    },
+    "Hispanic_Female": {
+      "size": 138,
+      "selection_rate": 0.06521739130434782,
+      "accuracy": 0.9637681159420289
+    },
+    "Black_Male": {
+      "size": 174,
+      "selection_rate": 0.07471264367816093,
+      "accuracy": 0.9540229885057471
+    },
+    "Black_Female": {
+      "size": 145,
+      "selection_rate": 0.034482758620689655,
+      "accuracy": 0.9724137931034482
+    }
+  },
+  "features": [
+    "years_experience",
+    "interview_score",
+    "skills_match",
+    "previous_tenure",
+    "salary_requested"
+  ]
+}

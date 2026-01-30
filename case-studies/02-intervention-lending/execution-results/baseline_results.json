@@ -1,0 +1,98 @@
+{
+  "model_type": "XGBoost Baseline",
+  "timestamp": "2025-12-23T14:29:25.991343",
+  "dataset": {
+    "train_size": 5996,
+    "test_size": 1997,
+    "train_path": "data/synthetic/loan_approvals_train.csv",
+    "test_path": "data/synthetic/loan_approvals_test.csv"
+  },
+  "overall": {
+    "accuracy": 0.7886830245368052,
+    "by_group": {
+      "White": {
+        "size": 1221,
+        "selection_rate": 0.3235053235053235,
+        "true_positive_rate": 0.6084452975047985,
+        "actual_positive_rate": 0.4266994266994267,
+        "accuracy": 0.769041769041769
+      },
+      "Asian": {
+        "size": 191,
+        "selection_rate": 0.42408376963350786,
+        "true_positive_rate": 0.8367346938775511,
+        "actual_positive_rate": 0.25654450261780104,
+        "accuracy": 0.7486910994764397
+      },
+      "Hispanic": {
+        "size": 290,
+        "selection_rate": 0.12413793103448276,
+        "true_positive_rate": 0.8333333333333334,
+        "actual_positive_rate": 0.06206896551724138,
+        "accuracy": 0.9172413793103448
+      },
+      "Black": {
+        "size": 295,
+        "selection_rate": 0.08813559322033898,
+        "true_positive_rate": 0.26666666666666666,
+        "actual_positive_rate": 0.3050847457627119,
+        "accuracy": 0.7694915254237288
+      }
+    },
+    "demographic_parity": 0.2724393906886934,
+    "black_approval_rate": 0.08813559322033898,
+    "white_approval_rate": 0.3235053235053235,
+    "dp_difference": 0.23536973028498454,
+    "equal_opportunity": 0.4382754994742376,
+    "eo_difference": 0.3417786308381318
+  },
+  "intersectional": {
+    "White_Male": {
+      "size": 628,
+      "selection_rate": 0.3503184713375796,
+      "accuracy": 0.7292993630573248
+    },
+    "White_Female": {
+      "size": 593,
+      "selection_rate": 0.2951096121416526,
+      "accuracy": 0.8111298482293423
+    },
+    "Asian_Male": {
+      "size": 97,
+      "selection_rate": 0.4845360824742268,
+      "accuracy": 0.6804123711340206
+    },
+    "Asian_Female": {
+      "size": 94,
+      "selection_rate": 0.3617021276595745,
+      "accuracy": 0.8191489361702128
+    },
+    "Hispanic_Male": {
+      "size": 151,
+      "selection_rate": 0.152317880794702,
+      "accuracy": 0.9072847682119205
+    },
+    "Hispanic_Female": {
+      "size": 139,
+      "selection_rate": 0.09352517985611511,
+      "accuracy": 0.9280575539568345
+    },
+    "Black_Male": {
+      "size": 151,
+      "selection_rate": 0.08609271523178808,
+      "accuracy": 0.7019867549668874
+    },
+    "Black_Female": {
+      "size": 144,
+      "selection_rate": 0.09027777777777778,
+      "accuracy": 0.8402777777777778
+    }
+  },
+  "features": [
+    "income",
+    "credit_score",
+    "debt_to_income",
+    "employment_length",
+    "loan_amount"
+  ]
+}
